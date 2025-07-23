@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Windhoek Deanery Choir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .hero-slide.inactive {
+            opacity: 0;
+            z-index: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .concert-tab {
+            transition: all 0.3s ease;
+        }
+        .concert-tab.active {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-music text-2xl"></i>
+                <a href="index.html" class="text-xl font-bold">WDC</a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-purple-200 transition">Home</a>
+                <a href="about.html" class="hover:text-purple-200 transition">About</a>
+                <a href="concert.html" class="hover:text-purple-200 transition">Concert</a>
+                <a href="tickets.html" class="hover:text-purple-200 transition">Tickets</a>
+                <a href="media.html" class="hover:text-purple-200 transition">Media</a>
+                <a href="donate.html" class="hover:text-purple-200 transition">Donate</a>
+                <a href="contact.html" class="hover:text-purple-200 transition">Contact</a>
+            </div>
+           
+            <button id="mobile-menu-button" class="md:hidden text-xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-purple-800">
+            <div class="px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Home</a>
+                <a href="about.html" class="block py-2 hover:bg-purple-700 px-2 rounded">About</a>
+                <a href="concert.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Concert</a>
+                <a href="tickets.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Tickets</a>
+                <a href="media.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Media</a>
+                <a href="donate.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Donate</a>
+                <a href="contact.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="donate" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">Support the Windhoek Deanery Choir</h2>
+            
+            <div class="max-w-3xl mx-auto bg-purple-50 p-8 rounded-lg shadow-lg text-center">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Your generous contributions empower the Windhoek Deanery Choir to continue our mission of 
+                    sharing sacred music, fostering community, and enriching lives through our performances. 
+                    Every donation, big or small, makes a significant difference.
+                </p>
+
+                <h3 class="text-2xl font-bold text-purple-900 mb-6">How Your Support Helps:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed text-left mb-8 max-w-xl mx-auto">
+                    <li class="mb-2"><i class="fas fa-microphone text-purple-600 mr-2"></i> Purchasing new sheet music and musical arrangements.</li>
+                    <li class="mb-2"><i class="fas fa-bus text-purple-600 mr-2"></i> Covering transportation costs for choir members to rehearsals and venues.</li>
+                    <li class="mb-2"><i class="fas fa-volume-up text-purple-600 mr-2"></i> Maintaining and upgrading sound equipment.</li>
+                    <li class="mb-2"><i class="fas fa-tshirt text-purple-600 mr-2"></i> Procuring performance attire and cultural outfits.</li>
+                    <li class="mb-2"><i class="fas fa-chalkboard-teacher text-purple-600 mr-2"></i> Supporting workshops and vocal training for choir development.</li>
+                    <li><i class="fas fa-hand-holding-usd text-purple-600 mr-2"></i> Funding venue rentals and event production for concerts like "Sing Without Borders."</li>
+                </ul>
+
+                <h3 class="text-2xl font-bold text-purple-900 mb-6">Ways to Donate:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-university text-purple-600 text-4xl mb-3"></i>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Bank Transfer</h4>
+                        <p class="text-gray-700 text-left">
+                            <strong>Bank Name:</strong> First National Bank Namibia<br>
+                            <strong>Account Name:</strong> Windhoek Deanery Choir<br>
+                            <strong>Account Number:</strong> XXXXXXXX<br>
+                            <strong>Branch Code:</strong> XXXX<br>
+                            <strong>SWIFT Code:</strong> FIRNNANX
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-mobile-alt text-purple-600 text-4xl mb-3"></i>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Mobile Money (E-Wallet/EasyWallet/BlueWallet)</h4>
+                        <p class="text-gray-700 text-left">
+                            You can send your donation to the following number:<br>
+                            <strong>Mobile Number:</strong> 081 XXX XXXX<br>
+                            <span class="text-sm text-gray-500">Please use "Donation-YourName" as reference.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-purple-100 rounded-lg">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-4">Become a Patron:</h3>
+                    <p class="text-lg text-gray-700 mb-4">
+                        For those interested in larger contributions or partnership opportunities, 
+                        please reach out to us directly.
+                    </p>
+                    <a href="contact.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition flex items-center justify-center inline-flex">
+                        <i class="fas fa-envelope mr-2"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Windhoek Deanery Choir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopButton.classList.add('fixed', 'bottom-8', 'right-8', 'bg-purple-600', 'text-white', 'p-4', 'rounded-full', 'shadow-lg', 'transition-all', 'duration-300', 'opacity-0', 'invisible', 'z-40');
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

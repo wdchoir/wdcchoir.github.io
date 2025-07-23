@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Windhoek Deanery Choir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .hero-slide.inactive {
+            opacity: 0;
+            z-index: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .concert-tab {
+            transition: all 0.3s ease;
+        }
+        .concert-tab.active {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-music text-2xl"></i>
+                <a href="index.html" class="text-xl font-bold">WDC</a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-purple-200 transition">Home</a>
+                <a href="about.html" class="hover:text-purple-200 transition">About</a>
+                <a href="concert.html" class="hover:text-purple-200 transition">Concert</a>
+                <a href="tickets.html" class="hover:text-purple-200 transition">Tickets</a>
+                <a href="media.html" class="hover:text-purple-200 transition">Media</a>
+                <a href="donate.html" class="hover:text-purple-200 transition">Donate</a>
+                <a href="contact.html" class="hover:text-purple-200 transition">Contact</a>
+            </div>
+           
+            <button id="mobile-menu-button" class="md:hidden text-xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-purple-800">
+            <div class="px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Home</a>
+                <a href="about.html" class="block py-2 hover:bg-purple-700 px-2 rounded">About</a>
+                <a href="concert.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Concert</a>
+                <a href="tickets.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Tickets</a>
+                <a href="media.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Media</a>
+                <a href="donate.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Donate</a>
+                <a href="contact.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">Get in Touch with Windhoek Deanery Choir</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    We'd love to hear from you! Whether you have questions about our concerts, are interested 
+                    in joining the choir, or would like to support us, feel free to reach out.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i> Our Details
+                        </h3>
+                        <ul class="text-gray-700 text-lg space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-purple-600 mr-3"></i>
+                                <span>Email: info@wdchoir.org</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt text-purple-600 mr-3"></i>
+                                <span>Phone: +264 81 XXX XXXX</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-purple-600 mr-3"></i>
+                                <span>Address: 123 Choir Lane, Windhoek, Namibia</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fab fa-facebook text-purple-600 mr-3"></i>
+                                <a href="http://facebook.com/wdchoir" target="_blank" class="hover:underline">Facebook/wdchoir</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fab fa-instagram text-purple-600 mr-3"></i>
+                                <a href="http://instagram.com/wdchoir" target="_blank" class="hover:underline">Instagram/wdchoir</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Us a Message
+                        </h3>
+                        <form action="#" method="POST" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="john.doe@example.com">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 text-sm font-bold mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Concert Inquiry / General Question">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Your message here..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition focus:outline-none focus:shadow-outline flex items-center justify-center inline-flex">
+                                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center p-6 bg-purple-50 rounded-lg">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-4">Visit Us</h3>
+                    <p class="text-lg text-gray-700 mb-4">
+                        While we don't have a public office, you can find us at our concert venues 
+                        during event days. We look forward to seeing you there!
+                    </p>
+                    <a href="concert.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition flex items-center justify-center inline-flex">
+                        <i class="fas fa-ticket-alt mr-2"></i> View Concert Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Windhoek Deanery Choir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopButton.classList.add('fixed', 'bottom-8', 'right-8', 'bg-purple-600', 'text-white', 'p-4', 'rounded-full', 'shadow-lg', 'transition-all', 'duration-300', 'opacity-0', 'invisible', 'z-40');
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form Submission (prevent default)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Form submission would be processed here in a live environment.');
+            });
+        });
+    </script>
+</body>
+</html>

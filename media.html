@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media | Windhoek Deanery Choir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .hero-slide.inactive {
+            opacity: 0;
+            z-index: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .concert-tab {
+            transition: all 0.3s ease;
+        }
+        .concert-tab.active {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-music text-2xl"></i>
+                <a href="index.html" class="text-xl font-bold">WDC</a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-purple-200 transition">Home</a>
+                <a href="about.html" class="hover:text-purple-200 transition">About</a>
+                <a href="concert.html" class="hover:text-purple-200 transition">Concert</a>
+                <a href="tickets.html" class="hover:text-purple-200 transition">Tickets</a>
+                <a href="media.html" class="hover:text-purple-200 transition">Media</a>
+                <a href="donate.html" class="hover:text-purple-200 transition">Donate</a>
+                <a href="contact.html" class="hover:text-purple-200 transition">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-purple-800">
+            <div class="px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Home</a>
+                <a href="about.html" class="block py-2 hover:bg-purple-700 px-2 rounded">About</a>
+                <a href="concert.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Concert</a>
+                <a href="tickets.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Tickets</a>
+                <a href="media.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Media</a>
+                <a href="donate.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Donate</a>
+                <a href="contact.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="media" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">Our Media Gallery</h2>
+            
+            <p class="text-lg text-gray-700 leading-relaxed mb-10 text-center max-w-2xl mx-auto">
+                Explore moments from our rehearsals, past performances, and community engagements. 
+                Witness the dedication and joy that defines the Windhoek Deanery Choir.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="easter collection_2025.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481327034_564770233251102_5359228178821543322_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=pnvcd5di3qoQ7kNvwETmbeI&_nc_oc=AdmMyy7NdVow0Mqurk8wbykD98RUOwdQ-B7wQ7r7d9kLbM77_OPF1RPq_ag_QjhIhGw&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=n-vKRq9HVOkAeESNoW8qUA&oh=00_AfQ_H0xXlEfurortcq0WQExngitffCCjwnle4hCl5YHyLQ&oe=68854374" 
+                         alt="Choir performance" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Easter Collection 2025</h3>
+                        <p class="text-gray-600 text-sm">A memorable evening of praise and worship.</p>
+                    </div>
+                </a>
+                <a href="weekly-rehearsals.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Rehearsal" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Weekly Rehearsals</h3>
+                        <p class="text-gray-600 text-sm">Dedicated practice sessions perfecting our harmonies.</p>
+                    </div>
+                </a>
+                <a href="community-outreach.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://images.unsplash.com/photo-1603190287605-e45be5bf28c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Community event" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Community Outreach</h3>
+                        <p class="text-gray-600 text-sm">Sharing our music with the wider community.</p>
+                    </div>
+                </a>
+                <a href="behind-the-scenes.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/490135317_595267953534663_129224740617799754_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=t8bkTTaWeXoQ7kNvwGiKg1h&_nc_oc=AdlgJfLBHaeAxAuKhZH9QhIdrdj5ZtL1n4JW9vaGsuFiCIVqO9M_DNpGobbO27EVMR8&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=R-OcycuBvKnhrFYWwykpVQ&oh=00_AfTIaItAoamsbeIu84xV1Rop4sH2LiuvUvocuFSfsYlZqg&oe=688549CA" 
+                         alt="Behind the scenes" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Behind the Scenes</h3>
+                        <p class="text-gray-600 text-sm">Moments of fellowship and fun during preparations.</p>
+                    </div>
+                </a>
+                <a href="dress-rehearsal.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Dress rehearsal" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Dress Rehearsal</h3>
+                        <p class="text-gray-600 text-sm">Putting the final touches on our performance.</p>
+                    </div>
+                </a>
+                <a href="voices-united.html" class="gallery-item bg-white rounded-lg shadow-md overflow-hidden block">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/518411336_122140063892770605_1663471879665753871_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RBX7FrFmD_gQ7kNvwH68L_M&_nc_oc=AdmOFOlIShdPjpgAEAoPqoHYQAncRxySpT-m7EPPedDhRgiqrtRYuebpx5OBLJfcznk&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=A6UX0meh164zbkRwb2awNA&oh=00_AfQA2NBt7rLQlTjZPkAxdlxs_Xt02eAlyGHC51D_EUPzog&oe=68855016" 
+                         alt="Singers" class="w-full h-56 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Voices United</h3>
+                        <p class="text-gray-600 text-sm">Our diverse choir members coming together in harmony.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold text-purple-900 mb-6">Concert Videos</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Relive the magic! Watch highlights and full performances from our past concerts.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 rounded-lg shadow-md p-4">
+                        <div class="relative" style="padding-bottom: 56.25%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                                src="https://share.zight.com/JruBNeQB" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="text-gray-800 font-semibold mt-4">"The Crucifixion" - Live Performance</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg shadow-md p-4">
+                        <div class="relative" style="padding-bottom: 56.25%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                                src="https://share.zight.com/JruBNeYB" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="text-gray-800 font-semibold mt-4">Concert Highlights Reel</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="contact.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition flex items-center justify-center inline-flex">
+                    <i class="fas fa-question-circle mr-2"></i> Have Photos to Share? Contact Us!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Windhoek Deanery Choir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopButton.classList.add('fixed', 'bottom-8', 'right-8', 'bg-purple-600', 'text-white', 'p-4', 'rounded-full', 'shadow-lg', 'transition-all', 'duration-300', 'opacity-0', 'invisible', 'z-40');
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

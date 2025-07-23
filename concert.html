@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert | Windhoek Deanery Choir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        .hero-slide.inactive {
+            opacity: 0;
+            z-index: 1;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .concert-tab {
+            transition: all 0.3s ease;
+        }
+        .concert-tab.active {
+            background-color: #4F46E5;
+            color: white;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-music text-2xl"></i>
+                <a href="index.html" class="text-xl font-bold">WDC</a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-purple-200 transition">Home</a>
+                <a href="about.html" class="hover:text-purple-200 transition">About</a>
+                <a href="concert.html" class="hover:text-purple-200 transition">Concert</a>
+                <a href="tickets.html" class="hover:text-purple-200 transition">Tickets</a>
+                <a href="media.html" class="hover:text-purple-200 transition">Media</a>
+                <a href="donate.html" class="hover:text-purple-200 transition">Donate</a>
+                <a href="contact.html" class="hover:text-purple-200 transition">Contact</a>
+            </div>
+           
+            <button id="mobile-menu-button" class="md:hidden text-xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-purple-800">
+            <div class="px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Home</a>
+                <a href="about.html" class="block py-2 hover:bg-purple-700 px-2 rounded">About</a>
+                <a href="concert.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Concert</a>
+                <a href="tickets.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Tickets</a>
+                <a href="media.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Media</a>
+                <a href="donate.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Donate</a>
+                <a href="contact.html" class="block py-2 hover:bg-purple-700 px-2 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900">About Windhoek Deanery Choir</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Choir members" class="w-full rounded-lg shadow-lg">
+                </div>
+                
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-purple-800 mb-4">Our Mission</h3>
+                        <p class="text-gray-700">
+                            To bring together Catholic voices across Windhoek's parishes in a joyful expression of faith, unity, 
+                            and cultural celebration through sacred music.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-purple-600 italic">
+                            "One voice. One spirit. One choir. Many cultures — singing for Christ."
+                        </h3>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-800 mb-4">Who We Are</h3>
+                        <p class="text-gray-700 mb-4">
+                            The Windhoek Deanery Choir is a multigenerational Catholic choir collective serving under the 
+                            Archdiocese of Windhoek. From liturgical service to community outreach, we are committed to 
+                            sharing the Gospel through music that uplifts and inspires.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold text-purple-700 mb-3">Musical Identity</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Sacred hymns, contemporary gospel, and ethnic praise</li>
+                            <li>Repertoire includes songs in English, Oshiwambo, Khoekhoegowab, German, Afrikaans, Otjiherero, and more</li>
+                            <li>Vocal unity that reflects Namibia's diversity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concert" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900">Sing Without Borders 2025</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-purple-800 mb-4">Overview</h3>
+                        <p class="text-gray-700 mb-6">
+                            "Sing Without Borders" is more than a concert — it's a celebration of faith and heritage. 
+                            Two unique evenings filled with passion, praise, and cultural expression. Expect traditional 
+                            drums, choir harmonies, graceful movement, and visual storytelling.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-purple-700 mb-3">Dates & Venues</h4>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-calendar-day text-purple-600 mt-1 mr-2"></i>
+                                        <span>
+                                            <strong>Friday, 3 October 2025</strong> – Khomasdal Community Hall
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-calendar-day text-purple-600 mt-1 mr-2"></i>
+                                        <span>
+                                            <strong>Saturday, 4 October 2025</strong> – Cathedral Hall
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-bold text-purple-700 mb-3">Time</h4>
+                                <ul class="space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-door-open text-purple-600 mt-1 mr-2"></i>
+                                        <span>Doors Open: 18h00</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-music text-purple-600 mt-1 mr-2"></i>
+                                        <span>Concert Starts: 18h30</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-flag-checkered text-purple-600 mt-1 mr-2"></i>
+                                        <span>Event Ends: 20h00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-purple-700 mb-3">Dress Code</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-purple-800 mb-2">First Half (Formal)</h5>
+                                    <p class="text-gray-700">Black outfit + elegant choir accessories</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-purple-800 mb-2">Second Half (Cultural)</h5>
+                                    <p class="text-gray-700">Ethnic/Namibian traditional wear</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-purple-700 mb-3">What to Expect</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>22 rehearsals, months of prayerful preparation</li>
+                                <li>New multicultural arrangements and collaborations</li>
+                                <li>A balance of solemn worship and joyful praise</li>
+                                <li>Special dedications and surprises</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-100 p-6 border-t border-purple-200">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div class="mb-4 md:mb-0">
+                                <h4 class="text-lg font-bold text-purple-800">Ticket Reminder</h4>
+                                <p class="text-gray-700">N$100 per person – access to either night</p>
+                                <p class="text-gray-700">Book early, seats are limited.</p>
+                            </div>
+                            <a href="tickets.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full transition whitespace-nowrap">
+                                <i class="fas fa-ticket-alt mr-2"></i> Get Your Tickets Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="flex border-b border-gray-200">
+                        <button class="concert-tab active flex-1 py-4 px-6 text-center font-medium" data-tab="khomasdal">
+                            <i class="fas fa-map-marker-alt mr-2"></i> Khomasdal Hall
+                        </button>
+                        <button class="concert-tab flex-1 py-4 px-6 text-center font-medium" data-tab="cathedral">
+                            <i class="fas fa-church mr-2"></i> Cathedral Hall
+                        </button>
+                    </div>
+                    
+                    <div id="khomasdal-tab" class="p-6">
+                        <h4 class="text-xl font-bold text-purple-800 mb-4">Friday, 3 October 2025 – Khomasdal Community Hall</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-purple-700 mb-2">Location</h5>
+                                <p class="text-gray-700 mb-4">123 Main Street, Khomasdal, Windhoek</p>
+                                
+                                <h5 class="font-bold text-purple-700 mb-2">Parking</h5>
+                                <p class="text-gray-700 mb-4">Parking available in the community center lot and surrounding streets</p>
+                                
+                                <h5 class="font-bold text-purple-700 mb-2">Accessibility</h5>
+                                <p class="text-700">Wheelchair accessible with dedicated seating areas</p>
+                            </div>
+                            <div>
+                                <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map text-4xl text-gray-500"></i>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="cathedral-tab" class="p-6 hidden">
+                        <h4 class="text-xl font-bold text-purple-800 mb-4">Saturday, 4 October 2025 – Cathedral Hall</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-purple-700 mb-2">Location</h5>
+                                <p class="text-gray-700 mb-4">456 Church Street, Central Windhoek</p>
+                                
+                                <h5 class="font-bold text-purple-700 mb-2">Parking</h5>
+                                <p class="text-gray-700 mb-4">Limited parking available, public transport recommended</p>
+                                
+                                <h5 class="font-bold text-purple-700 mb-2">Accessibility</h5>
+                                <p class="text-gray-700">Wheelchair accessible via side entrance</p>
+                            </div>
+                            <div>
+                                <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map text-4xl text-gray-500"></i>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Windhoek Deanery Choir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopButton.classList.add('fixed', 'bottom-8', 'right-8', 'bg-purple-600', 'text-white', 'p-4', 'rounded-full', 'shadow-lg', 'transition-all', 'duration-300', 'opacity-0', 'invisible', 'z-40');
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Concert Tabs Logic
+        const concertTabs = document.querySelectorAll('.concert-tab');
+        const concertTabContents = {
+            'khomasdal': document.getElementById('khomasdal-tab'),
+            'cathedral': document.getElementById('cathedral-tab')
+        };
+        
+        concertTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Update active tab styling
+                concertTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show the correct content
+                Object.values(concertTabContents).forEach(content => {
+                    content.classList.add('hidden');
+                });
+                concertTabContents[tabId].classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
