@@ -7,24 +7,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Parallax effect for potential future use (kept for consistency with other files) */
         .parallax {
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
+        /* Mobile menu specific styles */
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
         .mobile-menu.open {
-            max-height: 500px;
+            max-height: 500px; /* Adjust as needed based on menu content */
+        }
+
+        /* Keyframes for the fade-in-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Starts slightly below its final position */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Ends at its final position */
+            }
+        }
+
+        /* Custom utility classes for animation */
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            /* forwards ensures the element stays in its final state */
+            opacity: 0; /* Ensures element is hidden before animation starts */
+        }
+        .animate-delay-300 {
+            animation-delay: 0.3s; /* Delay for the paragraph to animate after the heading */
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
+<body class="font-sans bg-gray-800"> <nav class="bg-purple-900 text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-music text-2xl"></i>
@@ -60,38 +83,65 @@
     </nav>
 
     <main class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8">Voices United</h1>
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
-                At the heart of the Windhoek Deanery Choir are our dedicated and diverse members. This page celebrates the individuals whose voices, passion, and spirit come together to create beautiful music and a strong community.
+        <div class="max-w-screen-xl mx-auto px-4"> 
+            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8 animate-fade-in-up">Voices United: Our Choir Sections</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12 text-center max-w-3xl mx-auto animate-fade-in-up animate-delay-300">
+                At the heart of the Windhoek Deanery Choir are our dedicated and diverse members. This page celebrates the unique contributions of each voice section that comes together to create our harmonious sound.
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-                <img src="https://images.unsplash.com/photo-1627446700053-06619a97d975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                     alt="Voices United Choir Members" class="rounded-lg shadow-lg w-full h-auto object-cover">
-                <div class="relative rounded-lg shadow-lg" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="https://www.youtube.com/embed/fA_T-P9G88w?si=jklmnopqr2" 
-                        title="Choir Members Interviews" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col
+                            transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1518175510006-03c72b834927?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=400" 
+                         alt="Soprano Choir Section" class="w-full h-80 object-cover">
+                    <div class="p-6"> 
+                        <h3 class="font-bold text-2xl mb-2 text-purple-800">Soprano</h3>
+                        <p class="text-gray-700 text-lg">
+                            The highest vocal range, sopranos often carry the melody, bringing brightness and clarity to our choir's sound. Their voices soar, guiding the audience through the spiritual journey of our music.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col
+                            transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1549487299-d47e24a87383?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=400" 
+                         alt="Alto Choir Section" class="w-full h-80 object-cover">
+                    <div class="p-6"> 
+                        <h3 class="font-bold text-2xl mb-2 text-purple-800">Alto</h3>
+                        <p class="text-gray-700 text-lg">
+                            Providing the crucial harmonic foundation for the higher voices, the altos contribute richness and depth, adding warmth and fullness to our choir's overall blend.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col
+                            transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1506157788647-3a137b01777d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=400" 
+                         alt="Tenor Choir Section" class="w-full h-80 object-cover">
+                    <div class="p-6"> 
+                        <h3 class="font-bold text-2xl mb-2 text-purple-800">Tenor</h3>
+                        <p class="text-gray-700 text-lg">
+                            The tenors bring a unique blend of power and lyricism, often bridging the gap between male and female voices. Their harmonies add excitement and drive to our arrangements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col
+                            transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1627446700053-06619a97d975?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=400" 
+                         alt="Bass Choir Section" class="w-full h-80 object-cover">
+                    <div class="p-6"> 
+                        <h3 class="font-bold text-2xl mb-2 text-purple-800">Bass</h3>
+                        <p class="text-gray-700 text-lg">
+                            The foundation of our choir's sound, the basses provide the deep, resonant notes that give our music its grounded and rich quality. Their strong presence is indispensable.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-                <img src="https://images.unsplash.com/photo-1627446700053-06619a97d975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                     alt="Voices United Choir Members" class="rounded-lg shadow-lg w-full h-auto object-cover">
-                <div class="relative rounded-lg shadow-lg" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="https://www.youtube.com/embed/fA_T-P9G88w?si=jklmnopqr2" 
-                        title="Choir Members Interviews" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center">
-                We are more than just a choir; we are a family united in song and faith. Each voice brings a unique quality, contributing to our rich and diverse sound.
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center mt-12">
+                Together, these diverse voices form the Windhoek Deanery Choir – a family united in song and faith. Each member brings a unique quality, contributing to our rich and diverse sound and our shared mission of praise.
             </p>
 
             <div class="text-center mt-10">
