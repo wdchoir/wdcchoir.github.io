@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Custom CSS for elements that need more specific styling */
         .parallax {
             background-attachment: fixed;
             background-position: center;
@@ -20,6 +21,48 @@
         }
         .mobile-menu.open {
             max-height: 500px;
+        }
+        
+        /* Gallery item for hover animation */
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
+        }
+        .gallery-item:hover {
+            transform: scale(1.6); /* Pop out on hover (60% larger) */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+
+        /* Keyframes for the fade-in-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Starts slightly below its final position */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Ends at its final position */
+            }
+        }
+
+        /* Initial state for elements that will animate on scroll */
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Class added by JS to trigger the animation */
+        .animate-fade-in-up.appear {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Custom utility classes for animation delays */
+        .animate-delay-300 {
+            animation-delay: 0.3s; /* Delay for elements to animate */
+        }
+
+        /* Custom height for very large images */
+        .h-super-large {
+            height: 550px; /* A very large fixed height */
         }
     </style>
 </head>
@@ -37,8 +80,7 @@
                 <a href="concert.html" class="hover:text-purple-200 transition">Concert</a>
                 <a href="tickets.html" class="hover:text-purple-200 transition">Tickets</a>
                 <a href="media.html" class="hover:text-purple-200 transition">Media</a>
-                <a href="donate.html" class="hover:text-purple-200 transition">Donate</a>
-                <a href="contact.html" class="hover:text-purple-200 transition">Contact</a>
+                <a href="donate.html" class="hover:text-purple-200 transition">Contact</a>
             </div>
             
             <button id="mobile-menu-button" class="md:hidden text-xl focus:outline-none">
@@ -61,28 +103,63 @@
 
     <main class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8">Weekly Rehearsals</h1>
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8 animate-fade-in-up text-animate">Weekly Rehearsals</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto animate-fade-in-up animate-delay-300 text-animate">
                 Step behind the scenes and see where the magic happens! Our weekly rehearsals are a blend of dedicated practice, vocal conditioning, and team building. This is where individual voices come together to form one harmonious choir.
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                     alt="Weekly Rehearsals Main" class="rounded-lg shadow-lg w-full h-auto object-cover">
-                <div class="relative rounded-lg shadow-lg" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/8" 
-                        title="Rehearsal Snippets" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/518403287_122140267700770605_8187002876324718116_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=714c7a&_nc_ohc=qIh0xdvfZu8Q7kNvwEckV-S&_nc_oc=AdkXce6a8zNCNLTeDrO6MW36VdKrVzp9zcPDOtrAQy9EyDSpg8pDOBBu5DWy_82k3Hs&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=TS0A12lJVef6BJMXn2dm-A&oh=00_AfTrhBJmHqWsn_j_E7wnTr4ZgivMKn7T4brIbeKHa8CTIw&oe=6886DE20" 
+                        alt="Choir in action" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/489326706_594374713623987_1798619782190484097_n.jpg?stp=c297.0.486.486a_dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=50ad20&_nc_ohc=kaR_vwzDKXQQ7kNvwEr_TAa&_nc_oc=AdljdsPG9a806EiTilWELkYHoqo4DE5TXSL1YYsFWv1o6OxJaCUoqF4Lqvoh1MDLd6E&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=d1p176i8hPzC8jXBrISS0Q&oh=00_AfScX5MV26TUv8sm87vxR9XwA8FnFLanlN9r1RBawNZ2Nw&oe=6886D3A0" 
+                        alt="Singers practicing" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/522295673_122140280906770605_3232241319149496405_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=105&ccb=1-7&_nc_sid=714c7a&_nc_ohc=9saeFaYE1EgQ7kNvwHlWqAl&_nc_oc=Adny3_20LC0a1H0UpVatd70CauMbpqSmeGce_dElyuAUgkcdPFV6m9XgVvx8EQ3tdpM&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=JoTnp5MC_ddMQfOZ-SCnyg&oh=00_AfSOfcdntidyEQBKmAhImkzhvKa4Bk1qrgf7N0K4nkM9eA&oe=6886F562" 
+                        alt="Vocal warm-ups" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/482252104_564768169917975_4855715934482812572_n.jpg?stp=c120.0.720.720a_dst-jpg_s552x414_tt6&_nc_cat=101&ccb=1-7&_nc_sid=50ad20&_nc_ohc=MKmj56CDsY8Q7kNvwE21IZL&_nc_oc=AdnCaOs5uFYA9fzm7edNq2EQCAXUc9hXTV713wY4AoBOqg5JV3_nOEcxDHBhmqI5UEU&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=qcNyiHRXndVp8gBhwFqKFw&oh=00_AfSNsvxhreqjxLq1A21SA5-bNVKxc_oj6J4B0YzIutIAoA&oe=6886EBCB" 
+                        alt="Music sheets close-up" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/522873828_122140280714770605_3764507449364447397_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=104&ccb=1-7&_nc_sid=714c7a&_nc_ohc=_E2gN486834Q7kNvwG1WqOu&_nc_oc=Adk82MMSRiwtC9ptMptdoSbWKjjwNJE_KjEC95eKqVJfWjfm4LxiWcS18aOjGwvnTUM&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=JoTnp5MC_ddMQfOZ-SCnyg&oh=00_AfQ2rBlT0nb8V7PXYDGNg18Z8cNsuUZsSsg8rE2ih5I6Uw&oe=6886F77D" 
+                        alt="Group rehearsal" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/482252104_564768169917975_4855715934482812572_n.jpg?stp=c120.0.720.720a_dst-jpg_s552x414_tt6&_nc_cat=101&ccb=1-7&_nc_sid=50ad20&_nc_ohc=MKmj56CDsY8Q7kNvwE21IZL&_nc_oc=AdnCaOs5uFYA9fzm7edNq2EQCAXUc9hXTV713wY4AoBOqg5JV3_nOEcxDHBhmqI5UEU&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=qcNyiHRXndVp8gBhwFqKFw&oh=00_AfSNsvxhreqjxLq1A21SA5-bNVKxc_oj6J4B0YzIutIAoA&oe=6886EBCB" 
+                        alt="Sound check" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/523397755_122140265360770605_1118872207087580820_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=714c7a&_nc_ohc=pYVO0YuT1HcQ7kNvwHFd-Hx&_nc_oc=Adn-aN4m8lMLmXShV5eyi5J0FLpXj4RPUD_3pWaXbRdeMWS85fz7vhdkgDHYdben8_c&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=xdyNVHn8kw34VIUdP7qsQQ&oh=00_AfQB1pQ-H07oA-vyVq8MEhtSZE5Ll_b3jYR_hcKUU4wVEQ&oe=688700BE" 
+                        alt="Stage preparation" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466623267_489042034157256_8881124937920298941_n.jpg?stp=c125.0.750.750a_dst-jpg_s552x414_tt6&_nc_cat=101&ccb=1-7&_nc_sid=92e838&_nc_ohc=tnQHBHifU5MQ7kNvwEAkiUQ&_nc_oc=AdnpYJdt1X3kp_RlQ-tKSFt3ADTN0heuUgNcp53Xncn0GHwQObm4V2pnj5W9qrkwh30&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=YzCMbX6gR4jm4ENn82CABA&oh=00_AfSf7Zw563Q6z7danKtnW6LBOTbnNtqqETPIxizZ1d7sgQ&oe=6886F3CB" 
+                        alt="Focused practice" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/518403287_122140267700770605_8187002876324718116_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=714c7a&_nc_ohc=qIh0xdvfZu8Q7kNvwEckV-S&_nc_oc=AdkXce6a8zNCNLTeDrO6MW36VdKrVzp9zcPDOtrAQy9EyDSpg8pDOBBu5DWy_82k3Hs&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=JoTnp5MC_ddMQfOZ-SCnyg&oh=00_AfTFggll4qNuMsxU-VmWbVXVRnnwwQjFEPmf1ZRNCSQGdQ&oe=6886DE20" 
+                        alt="Choir harmony" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466772236_489042084157251_2209183883929752911_n.jpg?stp=c125.0.750.750a_dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=92e838&_nc_ohc=YDqbVx53eKwQ7kNvwHoae1D&_nc_oc=AdkGU8w4aA8zfGLntupQqTyaETraleM91imLyhuvzyJ1sSHfepPcn6NZOEchb9hPFQ8&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=YzCMbX6gR4jm4ENn82CABA&oh=00_AfRb-hsgCClu4B1VgnmqpDu79YEwLJQNbwA4Itkzw0zExQ&oe=6886CA70" 
+                        alt="Musical inspiration" class="rounded-lg shadow-lg w-full h-super-large object-cover">
+                </div>
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/520258862_122140265816770605_8415190954863737872_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=714c7a&_nc_ohc=3_UfEG80580Q7kNvwGqJ4RT&_nc_oc=AdnuYkrfABP82j14vjVhJCtNUwRAIeaPZ5DBY9wxK_yai5pO9YF1X9r7lAzXZDzX_ww&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=xdyNVHn8kw34VIUdP7qsQQ&oh=00_AfTbCBp4HMnE9IYMITNUJkvHRiyHHXNniW97AqrWyCUP2w&oe=6886E013" 
+                        alt="Vocal chords" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
             </div>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center">
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center animate-fade-in-up text-animate">
                 Our commitment to excellence shines through in every session. We invite new members to experience the joy of collective singing and spiritual growth.
             </p>
 
-            <div class="text-center mt-10">
+            <div class="text-center mt-10 animate-fade-in-up animate-delay-300 text-animate">
                 <a href="media.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition inline-flex items-center">
                     <i class="fas fa-arrow-left mr-2"></i> Back to Media Gallery
                 </a>
@@ -123,6 +200,33 @@
         
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const mediaItems = document.querySelectorAll('.media-item');
+        const textItems = document.querySelectorAll('.text-animate'); 
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Stop observing once it's animated
+                }
+            });
+        }, observerOptions);
+
+        mediaItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        textItems.forEach(item => { 
+            observer.observe(item);
         });
     </script>
 </body>
