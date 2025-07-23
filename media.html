@@ -46,6 +46,26 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        /* New: Fade-in and slide-up animation for text */
+        .text-animate {
+            opacity: 0;
+            transform: translateY(30px); /* Slightly more pronounced slide for text */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower transition */
+        }
+        .text-animate.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* New: Fade-in and slide-up animation for video containers */
+        .video-container-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .video-container-animate.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -86,9 +106,9 @@
 
     <section id="media" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">Our Media Gallery</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10 text-animate">Our Media Gallery</h2>
             
-            <p class="text-lg text-gray-700 leading-relaxed mb-10 text-center max-w-2xl mx-auto">
+            <p class="text-lg text-gray-700 leading-relaxed mb-10 text-center max-w-2xl mx-auto text-animate">
                 Explore moments from our rehearsals, past performances, and community engagements. 
                 Witness the dedication and joy that defines the Windhoek Deanery Choir.
             </p>
@@ -145,12 +165,12 @@
             </div>
 
             <div class="mt-16 text-center">
-                <h3 class="text-2xl font-bold text-purple-900 mb-6">Concert Videos</h3>
-                <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-purple-900 mb-6 text-animate">Concert Videos</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-2xl mx-auto text-animate">
                     Relive the magic! Watch highlights and full performances from our past concerts.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-gray-100 rounded-lg shadow-md p-4">
+                    <div class="bg-gray-100 rounded-lg shadow-md p-4 video-container-animate">
                         <div class="relative" style="padding-bottom: 56.25%;">
                             <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                                 src="https://share.zight.com/JruBNeQB" 
@@ -160,7 +180,7 @@
                         </div>
                         <p class="text-gray-800 font-semibold mt-4">"The Crucifixion" - Live Performance</p>
                     </div>
-                    <div class="bg-gray-100 rounded-lg shadow-md p-4">
+                    <div class="bg-gray-100 rounded-lg shadow-md p-4 video-container-animate">
                         <div class="relative" style="padding-bottom: 56.25%;">
                             <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                                 src="https://share.zight.com/JruBNeYB" 
@@ -214,6 +234,33 @@
         
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const textElements = document.querySelectorAll('.text-animate');
+        const videoContainers = document.querySelectorAll('.video-container-animate'); // Select video containers
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Stop observing once it's animated
+                }
+            });
+        }, observerOptions);
+
+        textElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        videoContainers.forEach(container => {
+            observer.observe(container);
         });
     </script>
 </body>

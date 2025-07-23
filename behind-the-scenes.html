@@ -21,6 +21,26 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        /* Fade-in and slide-up animation for media */
+        .media-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .media-item.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Fade-in and slide-up animation for text */
+        .text-animate {
+            opacity: 0;
+            transform: translateY(30px); /* Slightly more pronounced slide for text */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower transition */
+        }
+        .text-animate.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -60,19 +80,19 @@
 
     <main class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8">Behind the Scenes</h1>
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8 text-animate">Behind the Scenes</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto text-animate">
                 Ever wondered what goes into preparing for a Windhoek Deanery Choir performance? This page offers an exclusive peek behind the curtain, showcasing the hard work, camaraderie, and lighter moments during our preparations.
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/518403211_122140267616770605_5896003528704455407_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ngpccOISTloQ7kNvwGwrmYF&_nc_oc=AdkyKXKrMD7kcdz1hNyOrLNpdqyoxhB3zscpLA7eLnizX4nsmX7Mpuk4DQNSRTEmy6Y&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=y5vyetHYzxetNFE3ns5gNg&oh=00_AfSCahbqTNsq3OpJh5hAaXxV7BngxjE-jFMjoTM04e4YPQ&oe=6886C51E" 
-                     alt="Behind the Scenes Main" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/523241842_122140265108770605_3464652225797568428_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ppggHw1nKNQQ7kNvwFh346o&_nc_oc=AdnzCTv9jPHzIBsIk8tg_yq6_vbaJh0mFUYHaaI9Er5DnUaU5tKRlj3TzTK-4R6GlyE&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=_jg2n16A9KhNaXpOM153bQ&oh=00_AfSuOXto-wGY1AY-DffpThyE3r546-ptyWpxEoIci56KSQ&oe=6886E0D5" 
+                     alt="Behind the Scenes Main" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/518403287_122140267700770605_8187002876324718116_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=qIh0xdvfZu8Q7kNvwEckV-S&_nc_oc=AdkXce6a8zNCNLTeDrO6MW36VdKrVzp9zcPDOtrAQy9EyDSpg8pDOBBu5DWy_82k3Hs&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=y5vyetHYzxetNFE3ns5gNg&oh=00_AfSkeWoE-FHZNvdVgyBM5K9gjbUqAA-sKI9kCNRSe9SpwQ&oe=6886DE20" 
-                     alt="Rehearsal Shot 1" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Rehearsal Shot 1" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <div class="relative rounded-lg shadow-lg md:col-span-2" style="padding-bottom: 56.25%;">
+                <div class="relative rounded-lg shadow-lg md:col-span-2 media-item" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                         src="https://share.zight.com/NQuXbgPj" 
                         title="BTS Video 1" frameborder="0" 
@@ -81,12 +101,12 @@
                 </div>
 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/480884491_564768113251314_4682074797913336132_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=goYzEABp3CgQ7kNvwENqN-w&_nc_oc=AdnKvinLbH0zyC_E1dUn21HFeZEBpoH1T-LDA-7Qk6eQ5pYKzSzPBQHbpqBEsetmS_c&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=GqkC1xWI12WXtvzDBD_l0A&oh=00_AfQBFo7p3ko7pxKDjGrSUKVtMV3yYc_sVMxTdxkEWqzLZg&oe=6886AC6B" 
-                     alt="Practice Session 2" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Practice Session 2" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481458264_564144609980331_1925726516629840318_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=J_7e9VGmh_sQ7kNvwE03uCS&_nc_oc=AdlfLsfcVFMmiqtJ-QMJ9zSsmnbC9KToZmsoHOcgma02RZk82B2xp3bFUvK3b_EbRU4&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=22flIbMnP4rzfHpURngZjg&oh=00_AfRrFRI9nOd0S1MkMx_PU1MwNBbK8p9r6HKyWn5ZlXClQQ&oe=6886B1CB" 
-                     alt="Conductor Directing 2" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Conductor Directing 2" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <div class="relative rounded-lg shadow-lg md:col-span-2" style="padding-bottom: 56.25%;">
+                <div class="relative rounded-lg shadow-lg md:col-span-2 media-item" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                         src="https://share.zight.com/llulZJA2" 
                         title="BTS Video 2" frameborder="0" 
@@ -95,12 +115,12 @@
                 </div>
 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/489344990_594374780290647_4576687427679516214_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8W4mTuffSq8Q7kNvwGeqYJv&_nc_oc=Adm65M4qGLhdoXK9NCk-pRMOi2SVmQ4tXQ6oAmrLq54dG5A1nrOGaJ46iA9lznwF3ec&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=OqAxbunoUCI2Zz16AfRxTA&oh=00_AfTBPkHH1-nkRlvRSAvf7vNRToIQe_PeMS1T8fk526UACw&oe=6886C1BA" 
-                     alt="Choir Fun 3" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Choir Fun 3" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/520258862_122140265816770605_8415190954863737872_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=3_UfEG80580Q7kNvwGqJ4RT&_nc_oc=AdnuYkrfABP82j14vjVhJCtNUwRAIeaPZ5DBY9wxK_yai5pO9YF1X9r7lAzXZDzX_ww&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=N_IscRsPsv0vF17dgI_0Bw&oh=00_AfRZeO86wA8lCYEt-3QI2rb31FXswdGkgk2p714K55-9sw&oe=6886E013" 
-                     alt="Backstage Moments 3" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Backstage Moments 3" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <div class="relative rounded-lg shadow-lg md:col-span-2" style="padding-bottom: 56.25%;">
+                <div class="relative rounded-lg shadow-lg md:col-span-2 media-item" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                         src="https://share.zight.com/jkukqZvP" 
                         title="BTS Video 3" frameborder="0" 
@@ -109,12 +129,12 @@
                 </div>
 
                 <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481224346_564145013313624_609852351218842069_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=2-BOP90N1QAQ7kNvwFE5FXB&_nc_oc=AdnfHF4Lo2JxDQR_9qAtcY7shxqvKqdsQGXVclCH8nVcWNrc_fKSVNfdwXg3ZsHJJbE&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=fuC_NU692iR_SYeVsIGsBw&oh=00_AfQYKXfc6lVUeiJB8JhI3KnDpBj7MjOH44jKsh-J4sOOnA&oe=6886C0FD" 
-                     alt="Instruments and Choir 4" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                     alt="Instruments and Choir 4" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481015290_564144983313627_4248802080753944821_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=T2g1TKOEkZsQ7kNvwEdYrZF&_nc_oc=AdkmfquJqznRkegkSCJTb8_bKjQzuLdRxRhuNMazoqayR4GcI7jjPyQ5AdIryQlOSJ0&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=PrrpkEOuxhLnhi9b-0W8IA&oh=00_AfTeO-uoj43WKmmxvY-47ifJJKWSjLuEGJUpb8oTkGstNQ&oe=6886CC58" 
-                     alt="Pre-show Excitement 4" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/523397755_122140265360770605_1118872207087580820_n.jpg?stp=c256.0.1536.1536a_dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=714c7a&_nc_ohc=pYVO0YuT1HcQ7kNvwHFd-Hx&_nc_oc=Adn-aN4m8lMLmXShV5eyi5J0FLpXj4RPUD_3pWaXbRdeMWS85fz7vhdkgDHYdben8_c&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=P7ZEOcWIHvx8vQhL-12BRw&oh=00_AfSbafsN6l1GcxoJwTNgC34VXyfdp2nIwILe1fmJOgVZ7g&oe=6886C87E" 
+                     alt="Pre-show Excitement 4" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <div class="relative rounded-lg shadow-lg md:col-span-2" style="padding-bottom: 56.25%;">
+                <div class="relative rounded-lg shadow-lg md:col-span-2 media-item" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                         src="https://share.zight.com/JruBv64p" 
                         title="BTS Video 4" frameborder="0" 
@@ -122,13 +142,13 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
-                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/520390320_122140270076770605_2869415876902551043_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=r-aOEKTwx1sQ7kNvwG_gBMp&_nc_oc=AdmHI8psw_3SJQbQH1ffQP0r4JyAC7JmQUaoFgjUldFtzaGqU_OAtDmGa5dAWnel21s&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=068kK70PgYRzSkN7Jy8pfQ&oh=00_AfQYfi_9Kqx1Za55Q-qYvLzc4sWvyP6Nnw4ja4XxJh-gwQ&oe=6886D80F" 
-                     alt="Choir Unity 5" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/520390320_122140270076770605_2869415876902551043_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=r-aOEKTwx1sQ7kNvwG_gBMp&_nc_oc=AdmHI8psw_3SJQbQH1ffQP0r4JyAC7JmQUaoFgjUldFtzaGqU_OAtDmGa5dAWnel21s&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=09p1s6pkSvHIdMJHh4vTdw&oh=00_AfRsFmlgUz5byFxGQqWvRKuIrcDjX7-FkoMt2QnzMyrNGg&oe=6886D80F" 
+                     alt="Choir Unity 5" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/520942521_122140265744770605_4880094708944606072_n.jpg?stp=dst-jpg_p960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=xC48I_oip4cQ7kNvwFSysH4&_nc_oc=AdkZhtUU7z-2MOr6yG6Bmjffkl3_lVA47DAJ75kpaHePq7EC7LJNMRpnrI8VEzXc6fA&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=_g6t1POHDR0Vu_NZpyI-oA&oh=00_AfSxEee235J_Dq4iOEH9O-JwdIMjbqzb7Svot_l0eAPlKw&oe=6886CA54" 
-                     alt="Choir Spirit 5" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481015290_564144983313627_4248802080753944821_n.jpg?stp=c120.0.720.720a_dst-jpg_s552x414_tt6&_nc_cat=106&ccb=1-7&_nc_sid=50ad20&_nc_ohc=T2g1TKOEkZsQ7kNvwEdYrZF&_nc_oc=AdkmfquJqznRkegkSCJTb8_bKjQzuLdRxRhuNMazoqayR4GcI7jjPyQ5AdIryQlOSJ0&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=ZllTNw9St1-jdJA2GFe0jw&oh=00_AfQP3KSshilWDP4m3Pnk-vFXPUUYE7SPimGUY-D5gPX9KQ&oe=6886CC58" 
+                     alt="Choir Spirit 5" class="rounded-lg shadow-lg w-full h-auto object-cover media-item transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 
-                <div class="relative rounded-lg shadow-lg md:col-span-2" style="padding-bottom: 56.25%;">
+                <div class="relative rounded-lg shadow-lg md:col-span-2 media-item" style="padding-bottom: 56.25%;">
                     <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
                         src="https://share.zight.com/ApudnAz0" 
                         title="BTS Video 5" frameborder="0" 
@@ -137,7 +157,7 @@
                 </div>
             </div>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center">
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-animate">
                 These moments capture the true spirit of our choir – a family united by music and faith.
             </p>
 
@@ -182,6 +202,33 @@
         
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const mediaItems = document.querySelectorAll('.media-item');
+        const textItems = document.querySelectorAll('.text-animate'); 
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Stop observing once it's animated
+                }
+            });
+        }, observerOptions);
+
+        mediaItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        textItems.forEach(item => { 
+            observer.observe(item);
         });
     </script>
 </body>
