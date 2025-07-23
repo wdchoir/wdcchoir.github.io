@@ -27,19 +27,38 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
         }
         .gallery-item:hover {
-            transform: scale(1.1); /* Noticeably scale up on hover */
+            transform: scale(1.8); /* Even more significant pop out on hover (80% larger!) */
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
         }
-        /* Fade-in and subtle scale animation (from the front) */
-        .fade-in-front {
+
+        /* Keyframes for the fade-in-up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Starts slightly below its final position */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Ends at its final position */
+            }
+        }
+
+        /* Initial state for elements that will animate on scroll */
+        .animate-fade-in-up {
             opacity: 0;
-            transform: scale(0.98); /* Start slightly smaller */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
         }
-        .fade-in-front.appear {
-            opacity: 1;
-            transform: scale(1);
+
+        /* Class added by JS to trigger the animation */
+        .animate-fade-in-up.appear {
+            animation: fadeInUp 1s ease-out forwards;
         }
+
+        /* Custom utility classes for animation delays */
+        .animate-delay-300 {
+            animation-delay: 0.3s; /* Delay for elements to animate */
+        }
+
         /* Custom height for very large images */
         .h-super-large {
             height: 550px; /* A very large fixed height */
@@ -84,43 +103,43 @@
 
     <main class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8 fade-in-front">Dress Rehearsal</h1>
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto fade-in-front">
+            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8 animate-fade-in-up text-animate">Dress Rehearsal</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto animate-fade-in-up animate-delay-300 text-animate">
                 The final run-through before the big day! Our dress rehearsals are crucial for perfecting every note, movement, and stage presence. See how the choir fine-tunes their performance to deliver an unforgettable experience.
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 my-10">
-                <div class="fade-in-front gallery-item">
+                <div class="animate-fade-in-up gallery-item media-item">
                     <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/480923936_564770226584436_402137478111254819_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=75d36f&_nc_ohc=B0FHEpFN3U4Q7kNvwFw-0WE&_nc_oc=AdkzwKqSlagrzPSlxzRT2aDBCipre1bMNIp-T4JtHSSQn88hlXxyTvHUuL4FecxuvO0&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=swkv89_4p363sIZTLyEzXw&oh=00_AfS_J23KfBFGNaehkaftJOYVOBx4qLxc0OaGN3E1qKmt3Q&oe=6886F09F" 
                         alt="Dress Rehearsal Main" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
-                <div class="fade-in-front gallery-item">
+                <div class="animate-fade-in-up gallery-item media-item">
                     <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466924830_489657420762384_6413732777996522459_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VIS712U15-gQ7kNvwHYpkFI&_nc_oc=AdnVaWmuubsSUXYz3MgGaScix_WomgcdX93_kZKopg2LBzg8mQ-kzhvR7IMlMKqKMxI&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=-RFBb_D5cglqujKwroOyVQ&oh=00_AfQQtGD_FZc73j02pD6m0syMram5hBYCFHoK5c6qB_71Ew&oe=6886F031" 
                         alt="Rehearsal Shot 0" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
-                <div class="fade-in-front gallery-item">
-                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481126357_564770363251089_691158063881924594_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=75d36f&_nc_ohc=roFFGjdunSYQ7kNvwHXTvNU&_nc_oc=AdmmMw6o3p5pwCVQkcAaLvgJkO22aCpHEHP7ou3PSVnNwSmTBD12BawNyD1vNk0vqUA&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=n0chYlNbypTTCBZ3LEP6YQ&oh=00_AfRGYNO4iu6M2lnSETqBBUMzSaqDMhDjYcs9PiwHnqZiGg&oe=6886E160" 
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/481126357_564770363251089_691158063881924594_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=75d36f&_nc_ohc=roFFGjdunSYQ7kNvwHXTvNU&_nc_oc=AdmmMw6o3p5pwCVQkcAaLvgJkO22aCpHEHP7ou3PSVnNwSmTBD12BawNyD1vNk0vqUA&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=pt41mQcH57C21vBFFrBw6Q&oh=00_AfRAr9RQ0qK_hH0S4AEMqeoq-z8fMPJEut4tUq2WA0Lu7A&oe=6886E160" 
                         alt="Rehearsal Shot 1" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
-                <div class="fade-in-front gallery-item">
+                <div class="animate-fade-in-up gallery-item media-item">
                     <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/493515541_610779908650134_2225821399386761710_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3l3gmr7i67MQ7kNvwGnI1N8&_nc_oc=AdnnbTka0cr_EN5rymoTxOtGJ7X0IruQdIqWIe3bgvifU7IJynihRG4QTLJF1yJuZ14&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=tEAR0--IPziHaGAJjkwUDQ&oh=00_AfQXqAgI11zekOvPIkScQUDMpmWqdXfKkfBWygjSn8WlYw&oe=6886BA2C" 
                         alt="Rehearsal Shot 2" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
-                <div class="fade-in-front gallery-item">
-                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466784937_489657460762380_3845003837235767517_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=P2jYJ21pOegQ7kNvwEq3Nr1&_nc_oc=AdlrTdmn2GekwPzVybJ-ouiAKwAVO9poH6HXC2DzQerOr8ZKIRTVZTj1-8yCW_C4zsg&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=R8sXjLhDUo5xtF3EztO06w&oh=00_AfRJgXk0T254oDM-uyR9VErsHs8p88uNquOgB2XTzseoYw&oe=6886C461" 
+                <div class="animate-fade-in-up gallery-item media-item">
+                    <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466784937_489657460762380_3845003837235767517_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=110&ccb=1-7&_nc_sid=714c7a&_nc_ohc=P2jYJ21pOegQ7kNvwEq3Nr1&_nc_oc=AdlrTdmn2GekwPzVybJ-ouiAKwAVO9poH6HXC2DzQerOr8ZKIRTVZTj1-8yCW_C4zsg&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=EvQypZOhr6qnliU4vHS1Dg&oh=00_AfTdNS1yfN6CuIwJvZT4mw2BomrR0bCejpb-G1k54gPnrA&oe=6886FCA1" 
                         alt="Rehearsal Shot 3" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
-                <div class="fade-in-front gallery-item">
+                <div class="animate-fade-in-up gallery-item media-item">
                     <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/466413506_489054084156051_4233306441341480647_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=MKbrYU6ZDuIQ7kNvwHTMFDv&_nc_oc=AdnRTJMN3XpWoiy72cnK1CWqN9bJWqRqDPTk-JMhgvwXMMc4MOmz8yGoNg-YzxYRQw0&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=2DweHDgy8BOPlrHCQVdFPQ&oh=00_AfR0izdniUyXwRnIdKUJLFutVdCbULO9WHCpdhrW-hXgoQ&oe=6886EE3B" 
                         alt="Rehearsal Shot 4" class="rounded-lg shadow-lg w-full h-super-large object-cover">
                 </div>
             </div>
 
-            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center fade-in-front">
+            <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto text-center animate-fade-in-up text-animate">
                 Every detail matters in our quest for musical perfection, and the dress rehearsal is where it all comes together.
             </p>
 
-            <div class="text-center mt-10 fade-in-front">
+            <div class="text-center mt-10 animate-fade-in-up animate-delay-300 text-animate">
                 <a href="media.html" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition inline-flex items-center">
                     <i class="fas fa-arrow-left mr-2"></i> Back to Media Gallery
                 </a>
@@ -164,7 +183,8 @@
         });
 
         // Intersection Observer for fade-in animations
-        const animatedElements = document.querySelectorAll('.fade-in-front');
+        const mediaItems = document.querySelectorAll('.media-item');
+        const textItems = document.querySelectorAll('.text-animate'); 
 
         const observerOptions = {
             root: null, // viewport
@@ -181,8 +201,12 @@
             });
         }, observerOptions);
 
-        animatedElements.forEach(element => {
-            observer.observe(element);
+        mediaItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        textItems.forEach(item => { 
+            observer.observe(item);
         });
     </script>
 </body>
