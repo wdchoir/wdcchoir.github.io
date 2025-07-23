@@ -46,6 +46,24 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        /* New: Fade-in and slide-in from left animation */
+        .fade-slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px); /* Start 50px to the left */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-slide-in-left.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Optional: Add some staggered delay for children elements if they also have fade-slide-in-left */
+        .fade-slide-in-left > *:nth-child(even) {
+            transition-delay: 0.1s; /* Slightly delay even children */
+        }
+        .fade-slide-in-left > *:nth-child(odd) {
+            transition-delay: 0.05s; /* Slightly delay odd children */
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -87,17 +105,17 @@
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-purple-900">About Windhoek Deanery Choir</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900 fade-slide-in-left">About Windhoek Deanery Choir</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4 fade-slide-in-left"></div>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <div class="fade-slide-in-left">
                     <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                          alt="Choir members" class="w-full rounded-lg shadow-lg">
                 </div>
                 
-                <div>
+                <div class="fade-slide-in-left">
                     <div class="mb-8">
                         <h3 class="text-2xl font-bold text-purple-800 mb-4">Our Mission</h3>
                         <p class="text-gray-700">
@@ -135,12 +153,12 @@
     <section id="concert" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-purple-900">Sing Without Borders 2025</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900 fade-slide-in-left">Sing Without Borders 2025</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mt-4 fade-slide-in-left"></div>
             </div>
             
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12 fade-slide-in-left">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-purple-800 mb-4">Overview</h3>
                         <p class="text-gray-700 mb-6">
@@ -226,7 +244,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-slide-in-left">
                     <div class="flex border-b border-gray-200">
                         <button class="concert-tab active flex-1 py-4 px-6 text-center font-medium" data-tab="khomasdal">
                             <i class="fas fa-map-marker-alt mr-2"></i> Khomasdal Hall
@@ -338,6 +356,32 @@
                 });
                 concertTabContents[tabId].classList.remove('hidden');
             });
+        });
+
+        // Intersection Observer for fade-in and slide animations
+        const animatedElements = document.querySelectorAll('.fade-slide-in-left');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    // No unobserve here if you want elements to re-animate on scroll back up/down
+                    // If you want them to animate only once, uncomment: observer.unobserve(entry.target);
+                } else {
+                    // Optional: Remove 'appear' class if you want elements to slide out when scrolled away
+                    // entry.target.classList.remove('appear');
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>

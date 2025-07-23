@@ -46,6 +46,22 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        /* New: Fade-in and slide-up animation */
+        .fade-slide-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-slide-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Adjust delay for staggered effect (optional, can be done with JS too) */
+        .fade-slide-in:nth-child(2) { transition-delay: 0.1s; }
+        .fade-slide-in:nth-child(3) { transition-delay: 0.2s; }
+        .fade-slide-in:nth-child(4) { transition-delay: 0.3s; }
+        /* For the specific structure, we might need more specific delays in JS */
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -87,27 +103,27 @@
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">About Windhoek Deanery Choir</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10 fade-slide-in">About Windhoek Deanery Choir</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="md:order-2">
                         <img src="https://scontent.fers1-1.fna.fbcdn.net/v/t39.30808-6/490985210_599201279807997_5055882119702139403_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kTm96sZw1zkQ7kNvwGNKglb&_nc_oc=AdmSCZMIE-qgvm1WVLnuEie7QXlwztIKY0K8HtXKfUeCsyzJvY4QepV8T__qbGX45pA&_nc_zt=23&_nc_ht=scontent.fers1-1.fna&_nc_gid=X-XsR6uX7j5t1MlYpnPs8w&oh=00_AfT0z-4j4hJQR2z-MS_KSJHpp1TILlnZ-FjtI-Sdn-O1gw&oe=6885219A" 
-                             alt="Choir members rehearsing" class="rounded-lg shadow-lg">
+                             alt="Choir members rehearsing" class="rounded-lg shadow-lg fade-slide-in">
                     </div>
                     <div class="md:order-1">
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="text-gray-700 leading-relaxed mb-4 fade-slide-in">
                             The Windhoek Deanery Choir (WDC) is a vibrant and dedicated group of singers passionate 
                             about using music to glorify God and foster community. Established with the vision 
                             of bringing together diverse voices from across the deanery, we strive for excellence 
                             in our performances while upholding the spirit of worship and fellowship.
                         </p>
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                        <p class="text-gray-700 leading-relaxed mb-4 fade-slide-in">
                             Our choir is composed of individuals from various backgrounds, united by their love 
                             for choral music and their commitment to spreading messages of hope, joy, and faith 
                             through song. We believe that music transcends boundaries and has the power to connect 
                             people from all walks of life.
                         </p>
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="text-gray-700 leading-relaxed fade-slide-in">
                             Through regular rehearsals, prayer, and shared experiences, we not only hone our musical 
                             skills but also build strong bonds of friendship and mutual support. The WDC is more 
                             than just a choir; it is a family dedicated to ministering through music.
@@ -116,16 +132,16 @@
                 </div>
 
                 <div class="mt-12 text-center">
-                    <h3 class="text-2xl font-bold text-purple-900 mb-6">Our Mission</h3>
-                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-6 fade-slide-in">Our Mission</h3>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto fade-slide-in">
                         To inspire, uplift, and unite through the power of sacred music, fostering a deeper connection 
                         to faith and community within the Windhoek Deanery and beyond.
                     </p>
                 </div>
 
                 <div class="mt-12 text-center">
-                    <h3 class="text-2xl font-bold text-purple-900 mb-6">Our Vision</h3>
-                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-6 fade-slide-in">Our Vision</h3>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto fade-slide-in">
                         To be a beacon of musical excellence and spiritual enrichment, celebrating our cultural 
                         diversity and sharing God's love through harmonious praise.
                     </p>
@@ -137,12 +153,12 @@
 
     <section class="bg-purple-800 text-white py-16">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Harmonious Journey</h2>
-            <p class="text-lg md:text-xl mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-slide-in">Join Our Harmonious Journey</h2>
+            <p class="text-lg md:text-xl mb-8 fade-slide-in">
                 Whether you're a passionate singer, a music lover, or someone looking to support our mission, 
                 there's a place for you in the Windhoek Deanery Choir family.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-wrap justify-center gap-4 fade-slide-in">
                 <a href="contact.html" class="bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-full transition flex items-center">
                     <i class="fas fa-envelope mr-2"></i> Get in Touch
                 </a>
@@ -186,6 +202,28 @@
         
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const animatedElements = document.querySelectorAll('.fade-slide-in');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Stop observing once it's animated
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>

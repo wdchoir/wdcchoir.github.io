@@ -46,6 +46,16 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        /* New: Fade-in and subtle scale animation (from the front) */
+        .fade-in-front {
+            opacity: 0;
+            transform: scale(0.98); /* Start slightly smaller */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-front.appear {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -86,9 +96,9 @@
 
     <section id="donate" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10">Support the Windhoek Deanery Choir</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-10 fade-in-front">Support the Windhoek Deanery Choir</h2>
             
-            <div class="max-w-3xl mx-auto bg-purple-50 p-8 rounded-lg shadow-lg text-center">
+            <div class="max-w-3xl mx-auto bg-purple-50 p-8 rounded-lg shadow-lg text-center fade-in-front">
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
                     Your generous contributions empower the Windhoek Deanery Choir to continue our mission of 
                     sharing sacred music, fostering community, and enriching lives through our performances. 
@@ -129,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 p-6 bg-purple-100 rounded-lg">
+                <div class="mt-8 p-6 bg-purple-100 rounded-lg fade-in-front">
                     <h3 class="text-2xl font-bold text-purple-900 mb-4">Become a Patron:</h3>
                     <p class="text-lg text-gray-700 mb-4">
                         For those interested in larger contributions or partnership opportunities, 
@@ -176,6 +186,28 @@
         
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for fade-in animations
+        const animatedElements = document.querySelectorAll('.fade-in-front');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Stop observing once it's animated
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
