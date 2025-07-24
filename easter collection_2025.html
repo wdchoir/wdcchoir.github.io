@@ -21,13 +21,13 @@
         .mobile-menu.open {
             max-height: 500px;
         }
-        /* Style for video containers if you want subtle animations later */
+        /* Style for video containers */
         .video-container {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .video-container:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
         }
     </style>
 </head>
@@ -69,7 +69,7 @@
 
     <main class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 text-center mb-8">Concert Night 2025</h1>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-purple-900 text-center mb-8">Concert Night 2025</h1>
             <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
                 Relive the magic of our 2025 Concert Night! This page captures the essence of a memorable evening filled with praise, worship, and harmonious melodies. Browse through exclusive photos and videos from the performance.
             </p>
@@ -96,49 +96,59 @@
             <h2 class="text-3xl md:text-4xl font-bold text-purple-900 text-center mb-8">More Videos from Concert Night 2025</h2>
             
             <div class="grid grid-cols-1 gap-8 my-10">
-                <div class="relative rounded-lg shadow-lg video-container" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/7" 
-                        title="Video Title 1" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p class="absolute bottom-4 left-4 text-white font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">Song Title 1 Performance</p>
+                <div class="bg-gray-100 rounded-lg shadow-2xl p-6 flex flex-col video-container">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                            src="https://share.zight.com/JruBvGeL" 
+                            title="Video Title 1" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold mt-4 text-center">Song Title 1 Performance</p>
                 </div>
                 
-                <div class="relative rounded-lg shadow-lg video-container" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/7" 
-                        title="Video Title 2" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p class="absolute bottom-4 left-4 text-white font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">Choir Solo Highlight</p>
+                <div class="bg-gray-100 rounded-lg shadow-2xl p-6 flex flex-col video-container">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                            src="http://googleusercontent.com/youtube.com/7" 
+                            title="Video Title 2" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold mt-4 text-center">Choir Solo Highlight</p>
                 </div>
 
-                <div class="relative rounded-lg shadow-lg video-container" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/7" 
-                        title="Video Title 3" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p class="absolute bottom-4 left-4 text-white font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">Audience Reactions</p>
+                <div class="bg-gray-100 rounded-lg shadow-2xl p-6 flex flex-col video-container">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                            src="http://googleusercontent.com/youtube.com/7" 
+                            title="Video Title 3" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold mt-4 text-center">Audience Reactions</p>
                 </div>
 
-                <div class="relative rounded-lg shadow-lg video-container" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/7" 
-                        title="Video Title 4" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p class="absolute bottom-4 left-4 text-white font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">Behind the Scenes</p>
+                <div class="bg-gray-100 rounded-lg shadow-2xl p-6 flex flex-col video-container">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                            src="http://googleusercontent.com/youtube.com/7" 
+                            title="Video Title 4" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold mt-4 text-center">Behind the Scenes</p>
                 </div>
 
-                <div class="relative rounded-lg shadow-lg video-container" style="padding-bottom: 56.25%;">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
-                        src="http://googleusercontent.com/youtube.com/7" 
-                        title="Video Title 5" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p class="absolute bottom-4 left-4 text-white font-semibold bg-black bg-opacity-50 px-3 py-1 rounded">Full Concert Snippet</p>
+                <div class="bg-gray-100 rounded-lg shadow-2xl p-6 flex flex-col video-container">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                            src="http://googleusercontent.com/youtube.com/7" 
+                            title="Video Title 5" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold mt-4 text-center">Full Concert Snippet</p>
                 </div>
             </div>
 
